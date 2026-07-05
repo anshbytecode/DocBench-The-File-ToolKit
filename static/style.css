@@ -1,0 +1,220 @@
+/* ---------------------------------------------------------
+   DocBench — a workbench for document tools.
+   Palette: ink navy / paper / amber tool-marking accent.
+   --------------------------------------------------------- */
+:root {
+  --ink: #10192b;
+  --ink-soft: #2c3b52;
+  --paper: #f6f4ee;
+  --paper-dim: #ece8dd;
+  --amber: #e0912f;
+  --amber-dark: #b46f1e;
+  --line: #d8d3c4;
+  --mono: 'JetBrains Mono', monospace;
+  --display: 'Space Grotesk', sans-serif;
+  --body: 'Inter', sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  line-height: 1.5;
+}
+
+a { color: inherit; }
+
+/* ---------------- header ---------------- */
+.site-header {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 22px 40px;
+  background: var(--ink);
+  color: var(--paper);
+  border-bottom: 4px solid var(--amber);
+}
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.brand-mark {
+  font-family: var(--mono);
+  background: var(--amber);
+  color: var(--ink);
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+.brand-name {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--paper);
+  text-decoration: none;
+}
+.tagline {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: #9fb0c9;
+}
+
+/* ---------------- hero ---------------- */
+.hero, .tool-page { padding: 56px 40px 20px; max-width: 1100px; margin: 0 auto; }
+.hero-eyebrow {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: var(--amber-dark);
+  margin: 0 0 10px;
+}
+.hero h1, .tool-page h1 {
+  font-family: var(--display);
+  font-size: 2.6rem;
+  line-height: 1.1;
+  margin: 0 0 16px;
+  max-width: 16ch;
+}
+.tool-page h1 { font-size: 2rem; }
+.hero-sub {
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  max-width: 60ch;
+  margin: 0 0 10px;
+}
+
+/* ---------------- tool drawers ---------------- */
+.tool-drawer { max-width: 1100px; margin: 0 auto; padding: 20px 40px 10px; }
+.drawer-label {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--line);
+  padding-bottom: 8px;
+  margin-bottom: 18px;
+}
+.drawer-tab {
+  font-family: var(--mono);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  font-size: 0.85rem;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 5px 12px;
+  border-radius: 3px 3px 0 0;
+}
+.drawer-count { font-family: var(--mono); font-size: 0.75rem; color: var(--ink-soft); }
+
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 14px;
+  margin-bottom: 24px;
+}
+.tool-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--amber);
+  border-radius: 6px;
+  padding: 16px 18px;
+  text-decoration: none;
+  color: var(--ink);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.tool-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(16, 25, 43, 0.1);
+  border-left-color: var(--amber-dark);
+}
+.tool-card-name { font-family: var(--display); font-weight: 600; font-size: 1.02rem; }
+.tool-card-desc { font-size: 0.85rem; color: var(--ink-soft); }
+
+/* ---------------- tool page / form ---------------- */
+.back-link {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  text-decoration: none;
+  color: var(--ink-soft);
+  display: inline-block;
+  margin-bottom: 20px;
+}
+.workbench {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 28px;
+  max-width: 640px;
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.dropzone {
+  border: 2px dashed var(--line);
+  border-radius: 8px;
+  padding: 36px 20px;
+  text-align: center;
+  cursor: pointer;
+  background: var(--paper-dim);
+  transition: border-color 0.12s ease, background 0.12s ease;
+}
+.dropzone:hover, .dropzone.dragover { border-color: var(--amber); background: #fff8ec; }
+.dropzone-title { font-family: var(--display); font-weight: 600; margin: 0 0 4px; }
+.dropzone-sub { font-family: var(--mono); font-size: 0.8rem; color: var(--ink-soft); margin: 0; }
+
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field label { font-family: var(--mono); font-size: 0.78rem; color: var(--ink-soft); letter-spacing: 0.03em; }
+.field input, .field select, .field textarea {
+  font-family: var(--body);
+  font-size: 0.95rem;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--paper);
+}
+.field textarea { font-family: var(--mono); resize: vertical; }
+
+.run-btn {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1rem;
+  background: var(--amber);
+  color: var(--ink);
+  border: none;
+  border-radius: 6px;
+  padding: 13px 20px;
+  cursor: pointer;
+  transition: background 0.12s ease;
+}
+.run-btn:hover { background: var(--amber-dark); color: #fff; }
+.run-btn:disabled { opacity: 0.6; cursor: wait; }
+
+.status { font-family: var(--mono); font-size: 0.85rem; color: var(--ink-soft); min-height: 1.2em; margin: 0; }
+.status.error { color: #b3261e; }
+.status.success { color: #1e7a3f; }
+
+#diff-output { max-width: 1100px; overflow-x: auto; margin-top: 24px; }
+#diff-output table { font-family: var(--mono); font-size: 0.8rem; border-collapse: collapse; width: 100%; }
+#diff-output td { padding: 2px 8px; border-bottom: 1px solid var(--line); }
+
+/* ---------------- footer ---------------- */
+.site-footer {
+  text-align: center;
+  padding: 30px;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--line);
+  margin-top: 40px;
+}
+
+@media (max-width: 640px) {
+  .site-header { flex-direction: column; gap: 4px; padding: 18px 20px; }
+  .hero, .tool-page, .tool-drawer { padding-left: 20px; padding-right: 20px; }
+  .hero h1 { font-size: 1.9rem; }
+}

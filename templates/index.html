@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="hero">
+  <p class="hero-eyebrow">01 · SELECT A TOOL</p>
+  <h1>Every PDF, doc &amp; image job,<br>on one bench.</h1>
+  <p class="hero-sub">Merge, split, compress, convert, sign, and secure your files —
+    processed entirely on the server, nothing kept afterward.</p>
+</section>
+
+{% for cat in categories %}
+<section class="tool-drawer">
+  <div class="drawer-label">
+    <span class="drawer-tab">{{ cat }}</span>
+    <span class="drawer-count">{{ grouped[cat]|length }} tool{{ 's' if grouped[cat]|length != 1 else '' }}</span>
+  </div>
+  <div class="tool-grid">
+    {% for tool in grouped[cat] %}
+    <a class="tool-card" href="{{ url_for('tool_page', tool_id=tool.id) }}">
+      <span class="tool-card-name">{{ tool.name }}</span>
+      <span class="tool-card-desc">{{ tool.desc }}</span>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endfor %}
+
+{% endblock %}

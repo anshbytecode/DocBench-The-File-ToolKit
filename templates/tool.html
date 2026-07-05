@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}{{ cfg.name }} — DocBench{% endblock %}
+{% block content %}
+
+<section class="tool-page">
+  <a class="back-link" href="{{ url_for('index') }}">&larr; all tools</a>
+  <p class="hero-eyebrow">{{ cfg.category|upper }}</p>
+  <h1>{{ cfg.name }}</h1>
+  <p class="hero-sub">{{ cfg.desc }}</p>
+
+  <form id="tool-form" class="workbench">
+    {% if cfg.accept %}
+    <div class="dropzone" id="dropzone">
+      <input type="file" id="file-input" name="file" accept="{{ cfg.accept }}" {{ 'multiple' if cfg.multiple }} hidden>
+      <p class="dropzone-title">Drop file{{ 's' if cfg.multiple }} here or click to browse</p>
+      <p class="dropzone-sub" id="file-list">No file selected</p>
+    </div>
+    {% endif %}
+
+    {% for field in cfg.fields %}
+    <div class="field">
+      <label for="f-{{ field.name }}">{{ field.label }}</label>
+      {% if field.type == "select" %}
+      <select id="f-{{ field.name }}" name="{{ field.name }}">
+        {% for opt in field.options %}<option value="{{ opt }}">{{ opt }}</option>{% endfor %}
+      </select>
+      {% elif field.type == "textarea" %}
+      <textarea id="f-{{ field.name }}" name="{{ field.name }}" rows="8" placeholder="<h1>Hello</h1>"></textarea>
+      {% else %}
+      <input id="f-{{ field.name }}" name="{{ field.name }}" type="{{ field.type }}"
+             value="{{ field.default if field.default is defined else '' }}">
+      {% endif %}
+    </div>
+    {% endfor %}
+
+    <button type="submit" class="run-btn">Run {{ cfg.name }}</button>
+    <p class="status" id="status"></p>
+  </form>
+
+  <div id="diff-output"></div>
+</section>
+
+<script>
+  const TOOL_ID = "{{ tool_id }}";
+  const MULTIPLE = {{ 'true' if cfg.multiple else 'false' }};
+  const RESULT_TYPE = "{{ cfg.result if cfg.result else 'file' }}";
+</script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+{% endblock %}
