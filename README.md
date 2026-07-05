@@ -1,6 +1,6 @@
 # DocBench — a pure-Python PDF / Office / Image toolkit
 
-A self-hosted, iLovePDF-style toolkit built entirely in Python (Flask backend,
+A self-hosted,toolkit built entirely in Python (Flask backend,
 no external frameworks). Every tool runs in-memory, no uploaded file is ever
 written to permanent storage, which makes it safe to run in a stateless
 serverless environment.
@@ -15,30 +15,6 @@ serverless environment.
 | Edit | Watermark, Rotate, Page numbers, Crop |
 | Security | Redact, Protect (password), Unlock |
 | Intelligence | Compare PDF (text diff) |
-
-## Run locally
-
-```bash
-python3 -m venv venv && source venv/bin/activate
-pip install -r requirements.txt
-python app.py
-# open http://localhost:5000
-```
-
-Run the smoke test suite (generates sample files and exercises every tool):
-
-```bash
-python test_smoke.py
-```
-
-## Deploy
-
-### Vercel (recommended)
-
-```bash
-npm i -g vercel
-vercel
-```
 
 The included `vercel.json` + `api/index.py` route all traffic to the Flask
 app (`@vercel/python` runtime auto-detects the WSGI `app` object). Flask
