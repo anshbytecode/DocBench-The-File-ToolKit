@@ -78,12 +78,3 @@ netlify/functions/app.py Netlify entry point (alternative)
 test_smoke.py            End-to-end test covering all 21 tools
 ```
 
-## Security notes
-
-- Files are processed entirely in memory (`BytesIO`) and discarded after
-  the response is sent — nothing is written to a database or persistent disk.
-- `protect-pdf` / `unlock-pdf` use PDF standard encryption via `pypdf`. This
-  is suitable for casual access control, not for protecting highly sensitive
-  documents against a determined attacker.
-- `redact-pdf` uses PyMuPDF's `apply_redactions()`, which truly removes the
-  underlying text/image content (not just a black box drawn on top).
