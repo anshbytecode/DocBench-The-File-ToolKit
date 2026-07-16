@@ -6,11 +6,7 @@ from flask import Flask, render_template, request, send_file, jsonify, abort
 from utils import pdf_tools, image_tools, office_tools
 
 app = Flask(__name__)
-app.config["MAX_CONTENT_LENGTH"] = 20 * 1024 * 1024  # 20 MB request cap (tune per host)
-# --------------------------------------------------------------------------
-# Tool registry: drives both the UI (templates/tool.html) and the routing.
-# Each tool declares its accepted file input(s) and any extra form fields.
-# --------------------------------------------------------------------------
+app.config["MAX_CONTENT_LENGTH"] = 20 * 1024 * 1024  
 TOOLS = {
     "merge-pdf": {
         "name": "Merge PDF", "category": "Organize",
