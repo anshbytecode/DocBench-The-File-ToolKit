@@ -1,14 +1,12 @@
 (function () {
   const form = document.getElementById("tool-form");
   if (!form) return;
-
   const dropzone = document.getElementById("dropzone");
   const fileInput = document.getElementById("file-input");
   const fileListEl = document.getElementById("file-list");
   const statusEl = document.getElementById("status");
   const diffOutput = document.getElementById("diff-output");
   const runBtn = form.querySelector(".run-btn");
-
   if (dropzone && fileInput) {
     dropzone.addEventListener("click", () => fileInput.click());
     dropzone.addEventListener("dragover", (e) => { e.preventDefault(); dropzone.classList.add("dragover"); });
