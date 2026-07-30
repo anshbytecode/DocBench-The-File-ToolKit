@@ -22,8 +22,6 @@ TOOLS = {
         "desc": "Reorder or delete pages by specifying the new page order.",
         "accept": ".pdf", "multiple": False,
         "fields": [{"name": "order", "label": "New page order (e.g. 3,1,2)", "type": "text"}],
-
-        
     },
     "compress-pdf": {
         "name": "Compress PDF", "category": "Optimize",
