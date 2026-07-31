@@ -2,7 +2,6 @@
   functions = "netlify/functions"
   publish = "static"
 [functions]
-
   included_files = ["templates/**", "static/**", "utils/**"]
 [[redirects]]
   from = "/*"
