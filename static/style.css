@@ -127,7 +127,6 @@ a { color: inherit; }
 .tool-card-name { font-family: var(--display); font-weight: 600; font-size: 1.02rem; }
 .tool-card-desc { font-size: 0.85rem; color: var(--ink-soft); }
 
-/* ---------------- tool page / form ---------------- */
 .back-link {
   font-family: var(--mono);
   font-size: 0.8rem;
@@ -195,7 +194,7 @@ a { color: inherit; }
 #diff-output table { font-family: var(--mono); font-size: 0.8rem; border-collapse: collapse; width: 100%; }
 #diff-output td { padding: 2px 8px; border-bottom: 1px solid var(--line); }
 
-/* ---------------- footer ---------------- */
+
 .site-footer {
   text-align: center;
   padding: 30px;
