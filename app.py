@@ -11,8 +11,6 @@ TOOLS = {
         "desc": "Combine multiple PDFs into one, in the order you choose.",
         "accept": ".pdf", "multiple": True, "fields": [],
     },
-
-    
     "split-pdf": {
         "name": "Split PDF", "category": "Organize",
         "desc": "Extract page ranges into separate PDF files (zipped).",
@@ -25,6 +23,9 @@ TOOLS = {
         "accept": ".pdf", "multiple": False,
         "fields": [{"name": "order", "label": "New page order (e.g. 3,1,2)", "type": "text"}],
     },
+
+
+    
     "compress-pdf": {
         "name": "Compress PDF", "category": "Optimize",
         "desc": "Shrink file size by re-encoding embedded images.",
