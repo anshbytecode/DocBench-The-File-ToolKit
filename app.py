@@ -1,10 +1,5 @@
 import io
-
-
 import os
-
-
-
 import traceback
 from flask import Flask, render_template, request, send_file, jsonify, abort
 from utils import pdf_tools, image_tools, office_tools
