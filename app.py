@@ -23,9 +23,6 @@ TOOLS = {
         "accept": ".pdf", "multiple": False,
         "fields": [{"name": "order", "label": "New page order (e.g. 3,1,2)", "type": "text"}],
     },
-
-
-    
     "compress-pdf": {
         "name": "Compress PDF", "category": "Optimize",
         "desc": "Shrink file size by re-encoding embedded images.",
@@ -167,7 +164,6 @@ def index():
     for tool_id, cfg in TOOLS.items():
         grouped[cfg["category"]].append({"id": tool_id, **cfg})
     return render_template("index.html", grouped=grouped, categories=CATEGORIES)
-
 
 @app.route("/tool/<tool_id>")
 def tool_page(tool_id):
