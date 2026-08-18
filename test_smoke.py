@@ -4,17 +4,13 @@ using tiny generated sample files, to catch import/logic errors early.
 """
 import io
 import sys
-
 sys.path.insert(0, ".")
-
 from reportlab.pdfgen import canvas
 from PIL import Image
 from docx import Document as DocxDocument
 from openpyxl import Workbook
 
 from app import app
-
-
 def make_sample_pdf(text="Hello DocBench", pages=2):
     buf = io.BytesIO()
     c = canvas.Canvas(buf)
