@@ -4,11 +4,6 @@ import traceback
 from flask import Flask, render_template, request, send_file, jsonify, abort
 from utils import pdf_tools, image_tools, office_tools
 app = Flask(__name__)
-
-
-
-
-
 app.config["MAX_CONTENT_LENGTH"] = 20 * 1024 * 1024  
 TOOLS = {
     "merge-pdf": {
@@ -16,6 +11,8 @@ TOOLS = {
         "desc": "Combine multiple PDFs into one, in the order you choose.",
         "accept": ".pdf", "multiple": True, "fields": [],
     },
+
+    
     "split-pdf": {
         "name": "Split PDF", "category": "Organize",
         "desc": "Extract page ranges into separate PDF files (zipped).",
