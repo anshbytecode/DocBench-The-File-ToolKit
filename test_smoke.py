@@ -10,6 +10,7 @@ from PIL import Image
 from docx import Document as DocxDocument
 from openpyxl import Workbook
 
+
 from app import app
 def make_sample_pdf(text="Hello DocBench", pages=2):
     buf = io.BytesIO()
