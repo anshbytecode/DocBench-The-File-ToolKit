@@ -6,10 +6,6 @@ from utils import pdf_tools, image_tools, office_tools
 app = Flask(__name__)
 app.config["MAX_CONTENT_LENGTH"] = 20 * 1024 * 1024  
 TOOLS = {
-
-
-
-    
     "merge-pdf": {
         "name": "Merge PDF", "category": "Organize",
         "desc": "Combine multiple PDFs into one, in the order you choose.",
@@ -21,10 +17,6 @@ TOOLS = {
         "accept": ".pdf", "multiple": False,
         "fields": [{"name": "ranges", "label": "Page ranges (e.g. 1-3,5,7-9)", "type": "text"}],
     },
-
-
-
-    
     "organize-pdf": {
         "name": "Organize PDF", "category": "Organize",
         "desc": "Reorder or delete pages by specifying the new page order.",
