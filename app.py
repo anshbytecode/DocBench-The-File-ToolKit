@@ -17,12 +17,9 @@ TOOLS = {
         "accept": ".pdf", "multiple": False,
         "fields": [{"name": "ranges", "label": "Page ranges (e.g. 1-3,5,7-9)", "type": "text"}],
     },
-
-    
     "organize-pdf": {
         "name": "Organize PDF", "category": "Organize",
         "desc": "Reorder or delete pages by specifying the new page order.",
-        
         "accept": ".pdf", "multiple": False,
         "fields": [{"name": "order", "label": "New page order (e.g. 3,1,2)", "type": "text"}],
     },
